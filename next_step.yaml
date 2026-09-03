@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "updated": "2026-09-02",
+  "status": "architecture_owner_bootstrap",
+  "objective": "Keep GPU I/O semantics separate from CUDA memory/provider mechanisms and downstream dataset meaning.",
+  "authority": ["AGENTS.md", "docs/PROJECT_CHARTER.md", "docs/decisions/ADR-0001-independent-gpu-io-semantic-owner.md"],
+  "current_focus": {"issue": 3, "status": "not_activated", "next_action": "After bootstrap integration, select a concrete bounded source/sink profile and staged-path reference; implementation still requires an accepted spec."},
+  "parallel_governance": {"issue": 2, "status": "blocked_on_control_plane_mutation"},
+  "do_not": ["implement cuFile/GDS native bindings here", "absorb filesystem/dataset/database meaning", "treat RDMA as storage semantics", "claim direct-storage support from repository creation"]
+}
