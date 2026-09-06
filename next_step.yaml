@@ -2,7 +2,7 @@
   "schema_version": 2,
   "updated": "2026-09-06",
   "status": "architecture_owner_integrated_consumer_activation_gated",
-  "objective": "Keep GPU I/O semantics separate from CUDA memory/provider mechanisms, cross-domain memory policy and downstream dataset meaning.",
+  "objective": "Keep GPU I/O semantics separate from native CUDA memory/provider mechanisms, reserved CUDA-MM cross-domain physical policy and downstream dataset meaning.",
   "authority": [
     "AGENTS.md",
     "docs/PROJECT_CHARTER.md",
@@ -19,11 +19,17 @@
     "status": "consumer_selection_required",
     "next_action": "Select one concrete bounded source/sink profile and a staged-path semantic reference. Accept a finite contract before production work; direct-storage realization follows only through public CUDA-JS mechanisms."
   },
+  "optional_physical_policy_owner": {
+    "repository": "iteathen/CUDA-MM",
+    "status": "reserved_architecture_owner_production_not_activated",
+    "activation": "CUDA-MM #3/#4 plus a separately accepted bounded production contract",
+    "rule": "CUDA-IO retains source/sink/chunking/backpressure/out-of-core meaning; generic placement, pool, spill, migration or prefetch strategy may route to CUDA-MM only after activation."
+  },
   "do_not": [
     "implement cuFile/GDS native bindings here",
     "absorb filesystem/dataset/database meaning",
-    "treat generic cross-domain memory placement or spill policy as I/O semantics",
+    "implement generic cross-domain memory placement or spill policy here; CUDA-MM is the reserved owner if activated",
     "treat RDMA as storage semantics",
-    "claim direct-storage support from repository creation or completed governance"
+    "claim direct-storage support from repository creation, CUDA-MM existence or completed governance"
   ]
 }
