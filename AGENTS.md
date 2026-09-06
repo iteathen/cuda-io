@@ -6,6 +6,8 @@ Authority: explicit owner instruction -> this file -> accepted ADRs -> accepted 
 
 Use `assess -> research -> reassess -> plan -> execute -> qualify -> review -> cleanup/document` and `LEGO -> SOLID -> CUPID -> KISS`.
 
+LEGO is the outer architecture rule: ownership, universality, replaceability, scope containment, damage-limiting encapsulation, and context containment. A LEGO is too large when one agent cannot hold its complete authoritative working set—contract, implementation, invariants, lifecycle/resource/failure rules, tests/conformance, and immediate dependency/consumer interfaces—in focused attention with substantial headroom for reasoning and review. Context fit is a first-class boundary criterion alongside semantic, lifecycle, resource/failure, substitution, and change cohesion. When exceeded, recursively split at the strongest real seam or narrow scope; do not create arbitrary modules that duplicate truth or require cross-boundary internal knowledge. Inside a valid LEGO, SOLID structures responsibilities and dependency direction, CUPID shapes the implementation, and KISS removes remaining unjustified complexity; lower levels may not defeat higher ones.
+
 CUDA-IO owns reusable GPU data-source/data-sink and storage-I/O semantics when separately accepted: source/sink and region identity, bounded read/write/stream plans, offset/range/chunking requests, completion/failure/backpressure and staged-vs-direct equivalence.
 
 CUDA-IO does not own CUDA memory/views/DMA/provider lifecycle, cuFile/GDS handles/registration, filesystem/dataset/tablebase/checkpoint/model meaning, database semantics, or network communication. GPUDirect RDMA belongs to the communication lane; CUDA-JS owns the raw mechanism.
