@@ -1,19 +1,28 @@
 {
   "schema_version": 2,
-  "updated": "2026-09-05",
+  "updated": "2026-09-06",
   "status": "architecture_owner_integrated_consumer_activation_gated",
-  "objective": "Keep GPU I/O semantics separate from CUDA memory/provider mechanisms and downstream dataset meaning.",
-  "authority": ["AGENTS.md", "docs/PROJECT_CHARTER.md", "docs/decisions/ADR-0001-independent-gpu-io-semantic-owner.md"],
-  "completed": {"issue": 1, "state": "ownership_bootstrap_integrated"},
+  "objective": "Keep GPU I/O semantics separate from CUDA memory/provider mechanisms, cross-domain memory policy and downstream dataset meaning.",
+  "authority": [
+    "AGENTS.md",
+    "docs/PROJECT_CHARTER.md",
+    "docs/specs/SPEC-0001-native-boundary-and-js-only-implementation.md",
+    "docs/decisions/ADR-0001-independent-gpu-io-semantic-owner.md"
+  ],
+  "completed": {
+    "ownership_bootstrap_issue": 1,
+    "repository_governance_issue": 2,
+    "repository_governance_state": "protected_main_aligned"
+  },
   "current_focus": {
     "issue": 3,
     "status": "consumer_selection_required",
-    "next_action": "Select one concrete bounded source/sink profile and a staged-path semantic reference now that ownership is integrated. Accept a finite contract before production work; direct-storage realization is downstream of that contract and public lower-layer mechanisms."
+    "next_action": "Select one concrete bounded source/sink profile and a staged-path semantic reference. Accept a finite contract before production work; direct-storage realization follows only through public CUDA-JS mechanisms."
   },
-  "parallel_governance": {"issue": 2, "status": "main_unprotected_control_plane_alignment_open"},
   "do_not": [
     "implement cuFile/GDS native bindings here",
     "absorb filesystem/dataset/database meaning",
+    "treat generic cross-domain memory placement or spill policy as I/O semantics",
     "treat RDMA as storage semantics",
     "claim direct-storage support from repository creation or completed governance"
   ]
