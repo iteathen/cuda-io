@@ -1,3 +1,10 @@
-# CUDA-IO Documentation
+# CUDA-IO documentation
 
-`PROJECT_CHARTER.md` and accepted ADRs/specs own durable truth. Issues and roadmaps organize work but are not implementation authority.
+This directory contains the design and planning material for the proposed GPU storage I/O library. Production specifications have not yet been accepted.
+
+- [Project charter](PROJECT_CHARTER.md): purpose, intended scope, and boundaries.
+- [Architecture decisions](decisions/README.md): accepted ownership decisions.
+- [Specifications](specs/README.md): current contract status and requirements before implementation.
+- [Current project state](../STATUS.md): progress and next work.
+
+Roadmaps organize proposed work; accepted decisions and specifications govern their stated scopes.
